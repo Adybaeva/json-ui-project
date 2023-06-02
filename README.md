@@ -21,6 +21,8 @@ You need to come up with a JSON structure and build a react project which includ
 * I should be able to pass component attributes from JSON (ex: href, src).
 * etc.
 
+# Example
+* example folder has data.json and data.png which you can check and understand how it worsk
 
 # Result
 This task is a little bit ambiguous and we want to know how you would do this. Feel free to use any global state management like redux or context.
