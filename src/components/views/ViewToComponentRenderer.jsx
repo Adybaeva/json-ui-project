@@ -2,6 +2,7 @@ import StyleHelper from "../../utils/StyleHelper.js";
 import Button from "./Button.jsx";
 import Container from "./Container.jsx";
 import Image from "./Image.jsx";
+import Select from "./Select.jsx";
 import Text from "./Text.jsx";
 import TextArea from "./TextArea.jsx";
 import TextField from "./TextField.jsx";
@@ -35,6 +36,10 @@ export default function ViewToComponentRenderer({ view }) {
         case "textarea":
             return (
                 <TextArea {...resultProps} />
+            )
+        case "select":
+            return (
+                <Select {...resultProps} />
             )
         default:
             return null

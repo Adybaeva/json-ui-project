@@ -39,6 +39,12 @@ describe("ViewToComponentRenderer", () => {
     expect(getByTestId("textarea")).toBeInTheDocument();
   });
 
+  it('should render Select component for type "select"', () => {
+    const view = { type: "select", style: {}, data: { options: [] } };
+    const { getByTestId } = render(<ViewToComponentRenderer view={view} />);
+    expect(getByTestId("select")).toBeInTheDocument();
+  });
+
   it("should return null for unknown type", () => {
     const view = { type: "unknown", style: {} };
     const { container } = render(<ViewToComponentRenderer view={view} />);

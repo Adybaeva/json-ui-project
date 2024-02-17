@@ -35,16 +35,17 @@ export default class StyleHelper {
 
     const replacementActions = {
       onHover: (changedStyle) => {
-        console.log({ changedStyle });
+        let oldValue = null;
         return {
           onMouseEnter: (e) => {
             Object.entries(changedStyle).forEach(([key, value]) => {
+              oldValue = e.currentTarget.style[key];
               e.currentTarget.style[key] = value;
             });
           },
           onMouseLeave: (e) => {
             Object.entries(changedStyle).forEach(([key]) => {
-              e.currentTarget.style[key] = "unset";
+              e.currentTarget.style[key] = oldValue;
             });
           },
         };
@@ -54,7 +55,6 @@ export default class StyleHelper {
     return Object.entries(actions)?.reduce((acc, [key, value]) => {
       if (replacementActions[key]) {
         const newActions = replacementActions[key](value);
-        console.log({ newActions });
         return { ...acc, ...newActions };
       } else {
         acc[key] = (e) => {
